@@ -52,6 +52,59 @@ header h1 {
   letter-spacing: -0.02em;
 }
 
+.live-clock {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto;
+  gap: 0.1rem;
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.9rem 0.5rem 2.05rem;
+  border-radius: 999px;
+  border: 1px solid #c6d5e6;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+}
+
+.clock-ring {
+  position: absolute;
+  left: 0.52rem;
+  top: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: conic-gradient(from 0deg, #6950a1, #3b82f6, #6950a1);
+  animation: clock-spin 4s linear infinite;
+}
+
+.clock-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0.2rem;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.clock-label {
+  margin: 0;
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #556476;
+}
+
+.clock-time {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1f2a3b;
+  animation: clock-pulse 1s ease-in-out infinite;
+}
+
 #meta {
   margin: 0.3rem 0 1.1rem;
   color: var(--muted);
@@ -222,6 +275,15 @@ header h1 {
 }
 
 @media (max-width: 800px) {
+  .live-clock {
+    margin-bottom: 0.62rem;
+    padding: 0.45rem 0.75rem 0.45rem 1.9rem;
+  }
+
+  .clock-time {
+    font-size: 0.95rem;
+  }
+
   header h1 {
     font-size: 1.5rem;
   }
@@ -290,5 +352,22 @@ header h1 {
 
   .line-card td.time::before {
     content: "Expected: ";
+  }
+}
+
+@keyframes clock-spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes clock-pulse {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 1;
   }
 }

@@ -1,6 +1,7 @@
 const groupsEl = document.getElementById('lineGroups');
 const meta = document.getElementById('meta');
 const error = document.getElementById('error');
+const liveClockValue = document.getElementById('liveClockValue');
 
 const TFL_ENDPOINTS = [
   'https://api.tfl.gov.uk/Line/central,circle,hammersmith-city,metropolitan/Arrivals/940GZZLULVT',
@@ -247,5 +248,18 @@ function escapeHtml(text) {
     .replaceAll("'", '&#039;');
 }
 
+function updateLiveClock() {
+  if (!liveClockValue) return;
+  liveClockValue.textContent = new Intl.DateTimeFormat('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Europe/London'
+  }).format(new Date());
+}
+
+updateLiveClock();
+setInterval(updateLiveClock, 1000);
 loadTrains();
 setInterval(loadTrains, 30000);
