@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   --bg: #eef3f7;
   --surface: #ffffff;
@@ -14,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   background:
     radial-gradient(circle at 12% 8%, #d6e6f7 0, #eef3f7 35%, #f7fafc 100%);
   color: var(--text);
@@ -44,6 +46,9 @@ main {
 header h1 {
   margin: 0;
   font-size: 2rem;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 #meta {
@@ -77,6 +82,9 @@ header h1 {
 .line-header h2 {
   margin: 0;
   font-size: 1rem;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .line-header span {
