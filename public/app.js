@@ -19,6 +19,16 @@ const LINE_BRANDING = {
   'c2c': { key: 'c2c', label: 'c2c' }
 };
 const LINE_ORDER_PRIORITY = ['elizabeth-line'];
+const LINE_FACTS = {
+  'elizabeth-line': 'Opened in 2022 and can run up to 24 trains per hour through central London.',
+  'central': 'The Central line is one of the longest Tube lines, stretching from west to east London.',
+  'circle': 'It became a full loop line in 1949 and now includes an extension to Hammersmith.',
+  'hammersmith-city': 'It shares large sections of track with the Circle and Metropolitan lines.',
+  'metropolitan': "Opened in 1863, it's part of the world's first underground railway.",
+  'weaver': 'The Weaver line is named after the area’s textile and craft heritage in east London.',
+  'greater-anglia': 'Greater Anglia links Liverpool Street with Essex, Suffolk, Norfolk and beyond.',
+  'c2c': 'c2c is known for short commuter routes between London, south Essex and the Thames estuary.'
+};
 
 async function loadTrains() {
   try {
@@ -86,6 +96,7 @@ function renderGroups(trains) {
 }
 
 function renderGroupCard(line, services) {
+  const fact = getLineFact(line.key);
   const rows = services
     .map(
       (train) => `
@@ -101,7 +112,10 @@ function renderGroupCard(line, services) {
   return `
     <article class="line-card line-${line.key}">
       <header class="line-header">
-        <h2>${escapeHtml(line.label)}</h2>
+        <div class="line-title">
+          <h2>${escapeHtml(line.label)}</h2>
+          <p>${escapeHtml(fact)}</p>
+        </div>
         <span>${services.length} services</span>
       </header>
       <table>
@@ -124,6 +138,10 @@ function getLineMeta(operator) {
 
 function getLineKey(operator) {
   return getLineMeta(operator).key;
+}
+
+function getLineFact(lineKey) {
+  return LINE_FACTS[lineKey] || 'Live services for this line are shown below.';
 }
 
 function sortLineGroups(a, b) {
