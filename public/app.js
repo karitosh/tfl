@@ -20,15 +20,64 @@ const LINE_BRANDING = {
 };
 const LINE_ORDER_PRIORITY = ['elizabeth-line'];
 const LINE_FACTS = {
-  'elizabeth-line': 'Opened in 2022 and can run up to 24 trains per hour through central London.',
-  'central': 'The Central line is one of the longest Tube lines, stretching from west to east London.',
-  'circle': 'It became a full loop line in 1949 and now includes an extension to Hammersmith.',
-  'hammersmith-city': 'It shares large sections of track with the Circle and Metropolitan lines.',
-  'metropolitan': "Opened in 1863, it's part of the world's first underground railway.",
-  'weaver': 'The Weaver line is named after the area’s textile and craft heritage in east London.',
-  'greater-anglia': 'Greater Anglia links Liverpool Street with Essex, Suffolk, Norfolk and beyond.',
-  'c2c': 'c2c is known for short commuter routes between London, south Essex and the Thames estuary.'
+  'elizabeth-line': [
+    'Opened in 2022 and can run up to 24 trains per hour through central London.',
+    'Its central stations have platform screen doors, a first for mainline rail in the UK.',
+    'It uses longer trains and wider carriages than deep-level Tube lines.',
+    'The line links Heathrow Airport directly with central and east London.',
+    'It is commonly branded as the Elizabeth line, but its route code is Crossrail.'
+  ],
+  'central': [
+    'The Central line is one of the longest Tube lines, stretching from west to east London.',
+    'It first opened in 1900 as the Central London Railway.',
+    'Its roundel color is one of the most recognizable reds on the Tube map.',
+    'Large parts of the line run in deep-level tunnels under central London.',
+    'It serves both shopping hubs and major commuter suburbs.'
+  ],
+  'circle': [
+    'It became a full loop line in 1949 and now includes an extension to Hammersmith.',
+    'Its route connects many of London’s biggest interchange stations.',
+    'The Circle line shares tracks with multiple other sub-surface lines.',
+    'Its yellow map color makes it one of the easiest lines to spot at a glance.',
+    'It no longer runs only as a simple closed loop.'
+  ],
+  'hammersmith-city': [
+    'It shares large sections of track with the Circle and Metropolitan lines.',
+    'Its pink color was adopted on the Tube map in 1990.',
+    'The line serves both Paddington and Liverpool Street corridors.',
+    'It is one of London Underground’s sub-surface routes.',
+    'Many of its stations are among the oldest in the network.'
+  ],
+  'metropolitan': [
+    "Opened in 1863, it's part of the world's first underground railway.",
+    'It was originally built using cut-and-cover tunneling.',
+    'Some Metropolitan line services run far out into outer northwest London.',
+    'Its magenta color has been used in London branding for decades.',
+    'It is one of the few Underground lines with fast and semi-fast services.'
+  ],
+  'weaver': [
+    'The Weaver line is named after the area’s textile and craft heritage in east London.',
+    'It is part of the London Overground network serving Liverpool Street routes.',
+    'The line connects inner east London with Essex commuter towns.',
+    'Its branding uses the London Overground orange family palette.',
+    'Services share infrastructure with national rail in several sections.'
+  ],
+  'greater-anglia': [
+    'Greater Anglia links Liverpool Street with Essex, Suffolk, Norfolk and beyond.',
+    'Its intercity routes include services to Norwich and Ipswich.',
+    'Liverpool Street is one of its key commuter gateways into London.',
+    'The operator has introduced a newer fleet across many routes.',
+    'It runs both stopping commuter services and longer-distance journeys.'
+  ],
+  'c2c': [
+    'c2c is known for short commuter routes between London, south Essex and the Thames estuary.',
+    'Its London terminus is Fenchurch Street, with interchange options nearby.',
+    'The c2c route is one of the UK’s more punctual commuter corridors.',
+    'Many c2c stations are close to coastal and riverside towns.',
+    'Services primarily operate on the London, Tilbury and Southend line.'
+  ]
 };
+const ACTIVE_LINE_FACTS = selectFactsForSession();
 
 async function loadTrains() {
   try {
@@ -141,7 +190,14 @@ function getLineKey(operator) {
 }
 
 function getLineFact(lineKey) {
-  return LINE_FACTS[lineKey] || 'Live services for this line are shown below.';
+  return ACTIVE_LINE_FACTS[lineKey] || 'Live services for this line are shown below.';
+}
+
+function selectFactsForSession() {
+  return Object.entries(LINE_FACTS).reduce((acc, [lineKey, facts]) => {
+    acc[lineKey] = facts[Math.floor(Math.random() * facts.length)];
+    return acc;
+  }, {});
 }
 
 function sortLineGroups(a, b) {
