@@ -1,0 +1,228 @@
+:root {
+  --bg: #eef3f7;
+  --surface: #ffffff;
+  --text: #101b2d;
+  --muted: #526173;
+  --error: #b91c1c;
+  --border: #c9d4e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 12% 8%, #d6e6f7 0, #eef3f7 35%, #f7fafc 100%);
+  color: var(--text);
+}
+
+main {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#meta {
+  margin: 0.3rem 0 1.1rem;
+  color: var(--muted);
+}
+
+.line-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 0.9rem;
+}
+
+.line-card {
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.line-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.75rem;
+  color: #fff;
+}
+
+.line-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.line-header span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.line-card table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  table-layout: fixed;
+}
+
+.line-card th,
+.line-card td {
+  text-align: left;
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid #e8eef4;
+  font-size: 0.85rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.line-card th {
+  color: #2a3a4f;
+  background: #f5f8fc;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.line-card tr:last-child td {
+  border-bottom: 0;
+}
+
+.time {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.empty {
+  margin: 0;
+  padding: 0.8rem;
+}
+
+#error {
+  margin-top: 0.75rem;
+  color: var(--error);
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+.line-central .line-header {
+  background: #dc241f;
+}
+
+.line-circle .line-header {
+  background: #ffd329;
+  color: #1b1b1b;
+}
+
+.line-circle .line-header span {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.line-hammersmith-city .line-header {
+  background: #f4a9be;
+  color: #1b1b1b;
+}
+
+.line-hammersmith-city .line-header span {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.line-metropolitan .line-header {
+  background: #751056;
+}
+
+.line-elizabeth-line .line-header {
+  background: #6950a1;
+}
+
+.line-weaver .line-header {
+  background: #ee7c0e;
+}
+
+.line-greater-anglia .line-header {
+  background: #003688;
+}
+
+.line-c2c .line-header {
+  background: #5a6772;
+}
+
+.line-default .line-header {
+  background: #334155;
+}
+
+@media (max-width: 800px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .line-groups {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .line-card {
+    overflow: hidden;
+  }
+
+  .line-card table {
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .line-card thead {
+    display: none;
+  }
+
+  .line-card tbody,
+  .line-card tr,
+  .line-card td {
+    display: block;
+    width: 100%;
+  }
+
+  .line-card tr {
+    padding: 0.35rem 0.65rem;
+    border-bottom: 1px solid #e8eef4;
+  }
+
+  .line-card tr:last-child {
+    border-bottom: 0;
+  }
+
+  .line-card td {
+    border-bottom: 0;
+    padding: 0.2rem 0;
+    font-size: 0.88rem;
+  }
+
+  .line-card td::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .line-card td.time {
+    font-size: 1rem;
+  }
+
+  .line-card td.time::before {
+    content: "Expected: ";
+  }
+}
