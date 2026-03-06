@@ -18,6 +18,7 @@ const LINE_BRANDING = {
   'Greater Anglia': { key: 'greater-anglia', label: 'Greater Anglia' },
   'c2c': { key: 'c2c', label: 'c2c' }
 };
+const LINE_ORDER_PRIORITY = ['elizabeth-line'];
 
 async function loadTrains() {
   try {
@@ -77,7 +78,7 @@ function renderGroups(trains) {
   }, {});
 
   const cards = Object.values(grouped)
-    .sort((a, b) => a.line.label.localeCompare(b.line.label))
+    .sort(sortLineGroups)
     .map((group) => renderGroupCard(group.line, group.services))
     .join('');
 
@@ -123,6 +124,19 @@ function getLineMeta(operator) {
 
 function getLineKey(operator) {
   return getLineMeta(operator).key;
+}
+
+function sortLineGroups(a, b) {
+  const aPriority = LINE_ORDER_PRIORITY.indexOf(a.line.key);
+  const bPriority = LINE_ORDER_PRIORITY.indexOf(b.line.key);
+
+  if (aPriority !== -1 || bPriority !== -1) {
+    if (aPriority === -1) return 1;
+    if (bPriority === -1) return -1;
+    return aPriority - bPriority;
+  }
+
+  return a.line.label.localeCompare(b.line.label);
 }
 
 function modeFromLine(lineId) {

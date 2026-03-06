@@ -5,6 +5,7 @@
   --muted: #526173;
   --error: #b91c1c;
   --border: #c9d4e0;
+  --cat-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%2398afc7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.55'%3E%3Cpath d='M23 35l5-9 7 6 7-6 5 9'/%3E%3Ccircle cx='42' cy='44' r='12'/%3E%3Cpath d='M38 43h.01M46 43h.01'/%3E%3Cpath d='M39 48c1.6 1.2 4.4 1.2 6 0'/%3E%3Cpath d='M31 47h-8M31 50h-9M53 47h8M53 50h9'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -17,12 +18,27 @@ body {
   background:
     radial-gradient(circle at 12% 8%, #d6e6f7 0, #eef3f7 35%, #f7fafc 100%);
   color: var(--text);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: var(--cat-pattern);
+  background-size: 84px 84px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
 }
 
 main {
   max-width: 1200px;
   margin: 1.5rem auto;
   padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
