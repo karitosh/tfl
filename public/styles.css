@@ -9,7 +9,7 @@
   --border: #c9d4e0;
   --surface-tint: rgba(255, 255, 255, 0.82);
   --cat-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%2398afc7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.55'%3E%3Cpath d='M23 35l5-9 7 6 7-6 5 9'/%3E%3Ccircle cx='42' cy='44' r='12'/%3E%3Cpath d='M38 43h.01M46 43h.01'/%3E%3Cpath d='M39 48c1.6 1.2 4.4 1.2 6 0'/%3E%3Cpath d='M31 47h-8M31 50h-9M53 47h8M53 50h9'/%3E%3C/g%3E%3C/svg%3E");
-  --train-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='48' viewBox='0 0 170 48'%3E%3Cg fill='none' stroke='%237c93aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='22' y='11' width='112' height='20' rx='8'/%3E%3Crect x='134' y='15' width='24' height='14' rx='4'/%3E%3Cpath d='M33 31v6h90v-6'/%3E%3Cpath d='M44 17h18M72 17h18M100 17h18'/%3E%3Ccircle cx='44' cy='38' r='4' fill='%237c93aa'/%3E%3Ccircle cx='111' cy='38' r='4' fill='%237c93aa'/%3E%3Cpath d='M7 37h14M0 41h18M154 37h14M151 41h19'/%3E%3C/g%3E%3C/svg%3E");
+  --train-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='80' viewBox='0 0 560 80'%3E%3Crect x='0' y='64' width='560' height='3' fill='%238ea3b8' opacity='.4'/%3E%3Cg stroke='%23586e84' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 44h32v16H9z' fill='%236f859c'/%3E%3Cpath d='M41 32h56a7 7 0 0 1 7 7v21H41z' fill='%238ea4ba'/%3E%3Crect x='52' y='37' width='16' height='10' rx='2' fill='%23dce9f5'/%3E%3Crect x='72' y='37' width='16' height='10' rx='2' fill='%23dce9f5'/%3E%3Ccircle cx='97' cy='46' r='2' fill='%23ffd56a'/%3E%3Cg fill='%2395a9bd'%3E%3Crect x='112' y='31' width='74' height='25' rx='5'/%3E%3Crect x='192' y='31' width='74' height='25' rx='5'/%3E%3Crect x='272' y='31' width='74' height='25' rx='5'/%3E%3Crect x='352' y='31' width='74' height='25' rx='5'/%3E%3Crect x='432' y='31' width='74' height='25' rx='5'/%3E%3C/g%3E%3Cg fill='%23e2edf8'%3E%3Crect x='120' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='136' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='152' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='200' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='216' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='232' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='280' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='296' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='312' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='360' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='376' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='392' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='440' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='456' y='36' width='13' height='8' rx='1.5'/%3E%3Crect x='472' y='36' width='13' height='8' rx='1.5'/%3E%3C/g%3E%3Cg fill='%23698199'%3E%3Crect x='165' y='36' width='7' height='18' rx='1.2'/%3E%3Crect x='245' y='36' width='7' height='18' rx='1.2'/%3E%3Crect x='325' y='36' width='7' height='18' rx='1.2'/%3E%3Crect x='405' y='36' width='7' height='18' rx='1.2'/%3E%3Crect x='485' y='36' width='7' height='18' rx='1.2'/%3E%3C/g%3E%3Cg stroke='%23697f95'%3E%3Cpath d='M106 50h6M186 50h6M266 50h6M346 50h6M426 50h6'/%3E%3C/g%3E%3Cg fill='%233e5163'%3E%3Ccircle cx='27' cy='60' r='5.5'/%3E%3Ccircle cx='77' cy='60' r='5.5'/%3E%3Ccircle cx='131' cy='60' r='5.5'/%3E%3Ccircle cx='168' cy='60' r='5.5'/%3E%3Ccircle cx='211' cy='60' r='5.5'/%3E%3Ccircle cx='248' cy='60' r='5.5'/%3E%3Ccircle cx='291' cy='60' r='5.5'/%3E%3Ccircle cx='328' cy='60' r='5.5'/%3E%3Ccircle cx='371' cy='60' r='5.5'/%3E%3Ccircle cx='408' cy='60' r='5.5'/%3E%3Ccircle cx='451' cy='60' r='5.5'/%3E%3Ccircle cx='488' cy='60' r='5.5'/%3E%3C/g%3E%3Cg fill='%23b6c8d9' opacity='.65'%3E%3Crect x='112' y='32' width='394' height='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -42,15 +42,15 @@ body::after {
   position: fixed;
   top: 0.6rem;
   left: 100%;
-  width: 170px;
-  height: 48px;
+  width: 390px;
+  height: 56px;
   background-image: var(--train-svg);
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.26;
+  opacity: 0.34;
   pointer-events: none;
   z-index: 0;
-  animation: train-cruise 18s linear infinite;
+  animation: train-cruise 26s linear infinite;
 }
 
 main {
@@ -307,8 +307,8 @@ header h1 {
 
   body::after {
     top: 0.4rem;
-    width: 142px;
-    height: 40px;
+    width: 250px;
+    height: 36px;
   }
 
   header h1 {
@@ -419,6 +419,6 @@ header h1 {
   }
 
   100% {
-    transform: translateX(calc(-100vw - 230px));
+    transform: translateX(calc(-100vw - 470px));
   }
 }
