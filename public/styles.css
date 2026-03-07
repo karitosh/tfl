@@ -9,6 +9,7 @@
   --border: #c9d4e0;
   --surface-tint: rgba(255, 255, 255, 0.82);
   --cat-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%2398afc7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.55'%3E%3Cpath d='M23 35l5-9 7 6 7-6 5 9'/%3E%3Ccircle cx='42' cy='44' r='12'/%3E%3Cpath d='M38 43h.01M46 43h.01'/%3E%3Cpath d='M39 48c1.6 1.2 4.4 1.2 6 0'/%3E%3Cpath d='M31 47h-8M31 50h-9M53 47h8M53 50h9'/%3E%3C/g%3E%3C/svg%3E");
+  --train-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='48' viewBox='0 0 170 48'%3E%3Cg fill='none' stroke='%237c93aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='22' y='11' width='112' height='20' rx='8'/%3E%3Crect x='134' y='15' width='24' height='14' rx='4'/%3E%3Cpath d='M33 31v6h90v-6'/%3E%3Cpath d='M44 17h18M72 17h18M100 17h18'/%3E%3Ccircle cx='44' cy='38' r='4' fill='%237c93aa'/%3E%3Ccircle cx='111' cy='38' r='4' fill='%237c93aa'/%3E%3Cpath d='M7 37h14M0 41h18M154 37h14M151 41h19'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -34,6 +35,22 @@ body::before {
   opacity: 0.18;
   pointer-events: none;
   z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0.6rem;
+  left: 100%;
+  width: 170px;
+  height: 48px;
+  background-image: var(--train-svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.26;
+  pointer-events: none;
+  z-index: 0;
+  animation: train-cruise 18s linear infinite;
 }
 
 main {
@@ -288,6 +305,12 @@ header h1 {
     font-size: 1rem;
   }
 
+  body::after {
+    top: 0.4rem;
+    width: 142px;
+    height: 40px;
+  }
+
   header h1 {
     font-size: 1.5rem;
   }
@@ -359,6 +382,14 @@ header h1 {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+    left: auto;
+    right: 0.6rem;
+  }
+}
+
 @keyframes clock-spin {
   to {
     transform: translateY(-50%) rotate(360deg);
@@ -379,5 +410,15 @@ header h1 {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes train-cruise {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100vw - 230px));
   }
 }
