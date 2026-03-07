@@ -250,13 +250,34 @@ function escapeHtml(text) {
 
 function updateLiveClock() {
   if (!liveClockValue) return;
-  liveClockValue.textContent = new Intl.DateTimeFormat('en-GB', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    timeZone: 'Europe/London'
-  }).format(new Date());
+  liveClockValue.textContent = formatClockTime();
+  liveClockValue.classList.remove('tick');
+  void liveClockValue.offsetWidth;
+  liveClockValue.classList.add('tick');
+}
+
+function formatClockTime() {
+  try {
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+      timeZone: 'Europe/London'
+    });
+
+    if (typeof formatter.formatToParts === 'function') {
+      const parts = formatter.formatToParts(new Date());
+      const hour = parts.find((part) => part.type === 'hour')?.value || '00';
+      const minute = parts.find((part) => part.type === 'minute')?.value || '00';
+      const second = parts.find((part) => part.type === 'second')?.value || '00';
+      return `${hour}:${minute}:${second}`;
+    }
+
+    return formatter.format(new Date());
+  } catch (_) {
+    return new Date().toTimeString().slice(0, 8);
+  }
 }
 
 updateLiveClock();

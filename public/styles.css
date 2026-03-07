@@ -98,11 +98,15 @@ header h1 {
 .clock-time {
   margin: 0;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: 1.02rem;
+  font-size: 1.12rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   color: #1f2a3b;
-  animation: clock-pulse 1s ease-in-out infinite;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-time.tick {
+  animation: clock-tick 180ms ease-out;
 }
 
 #meta {
@@ -281,7 +285,7 @@ header h1 {
   }
 
   .clock-time {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   header h1 {
@@ -361,13 +365,19 @@ header h1 {
   }
 }
 
-@keyframes clock-pulse {
-  0%,
-  100% {
-    opacity: 0.82;
+@keyframes clock-tick {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
   }
 
-  50% {
+  60% {
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
